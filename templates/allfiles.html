@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block title%}{%endblock%}
+{%block stylesheet%}
+    <style>
+		table,td,th{
+			border-width: 10px;
+			margin:10px 10px;
+			border:1px solid;
+			text-align: center;
+			padding: 10px;
+			color:white;
+		}
+	</style>
+{%endblock%}
+{%block content%}
+<br>
+	<h1 style="margin-right:70%; border-color:#c9f; border-top-right-radius:45px; border-bottom-right-radius:45px; border-style:none; height:50px; border-left-style=none; text-align:center;background-color:#cc99ff">{{slug}}</h1><br>
+	<table style="border: blue 1px">
+		<tr>
+			<th>Name</th>
+			<th style="width:100%">File</th>
+			<th style="width:auto">Uploaded_by</th>
+		</tr>
+		{% for file in files %}
+		<tr>
+			<td>{{file.name}}</td>
+			<td><a href="{{file.file.url}}">{{file.file}}</a></td>
+			<td><a href="{%url 'profile' file.uploaded_by.username%}">{{file.uploaded_by.username}}</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+{%endblock%}

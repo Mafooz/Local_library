@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block title%}Welcome to Gyaani{%endblock%}
+{%block background%}
+<style>
+	body{
+		background-color:#d9d9d9;
+	}
+</style>
+{%endblock%}
+{%block stylesheet%}
+<link href='https://fonts.googleapis.com/css?family=Eagle Lake' rel='stylesheet'>
+<style>
+	.jumbotron{
+		background-color:#008066;
+	}
+</style>
+{%endblock%}
+{%block content%}
+<nav class='navbar-expand-sm bg-dark navbar-light'>
+	<ul class="navbar-nav justify-content-end ">
+		<li class="nav-item">
+			<a class="nav-link text-light" href="{%url 'login'%}">Login</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-light" href="{% url 'signup' %}">Signup</a>
+		</li>
+	</ul>
+</nav>
+<div class="jumbotron">
+	<p class="font-weight-light text-center display-1" style="font-family:'Eagle Lake';color:#1affff">Gyaani</p><br><br>
+	<p class="font-weight-normal text-center text-info display-5">Welcome to the world of knowlege</p>
+</div>
+{%endblock%}

@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block stylesheet%}
+<link href='https://fonts.googleapis.com/css?family=Eagle Lake' rel='stylesheet'>
+    <style>
+    	body{
+    		background-image:url({% static 'img/papyrus-dark.png'%})
+    	}
+    	h1{
+    		color:#FFFFFF;
+    		font-weight: 500;
+    		font-family: 'Eagle Lake';
+    		text-align: center;
+    	}
+   		table,td,th{
+			border-width: 10px;
+			margin:10px 10px;
+			border:1px solid;
+			text-align: center;
+			padding: 10px;
+			color:white;
+		}
+    </style>
+{%endblock%}
+{%block content%}
+<br>
+
+	<h1>{{users.username}}</h1>
+	<div style="border:3px groove; padding-left:20px; padding-top: 2px">
+		<p style="color:white; font-size:20px">{{users.first_name}}&nbsp{{users.last_name}}</p>
+		{% if user.email %}
+			<p style="color:white; font-weight:400 ;font-size:15px">Email: {{users.email}}</p>
+		{%endif%}
+	</div>
+	<br>
+	<p style="color:white; font-style: italic; font-size:20px;"><u>Uplaoded Files:</u></p><br>
+	<table style="border: blue 1px">
+		<tr>
+			<th>Name</th>
+			<th style="width:100%">File</th>
+			<th style="width:auto">Stream</th>
+		</tr>
+		{% for file in file %}
+		<tr>
+			<td>{{file.name}}</td>
+			<td><a href="{{file.file.url}}">{{file.file}}</a></td>
+			<td>{{file.branch}}</td>
+		</tr>
+		{%endfor%}
+	</table>	
+{%endblock%}

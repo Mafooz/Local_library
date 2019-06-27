@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block stylesheet%}
+<style type="text/css">
+	.file{
+		margin-left:10px;
+		height: 60px;
+		padding-top:15px;
+		border-width:10px;
+		border-left-color:#0000FF; 
+		background-color: powderblue;
+		border-left-style: inset;
+		border-top-style: none;
+		border-bottom-style: none;
+		border-right-style:none;
+		outline-style: groove;
+		outline-color: #00FFFF;
+		text-align: center;
+
+	}
+
+
+</style>
+{%endblock%}
+{%block content%}
+	<h1 style="font-family:'Encode+Sans+Expanded&display=swap'; font-size:100px;  text-align:center; color:white">Gyaani</h1>
+	<a role="button" class="btn btn-info" href="{% url 'upload'%}">Upload</a>
+	<br>
+	{% for streams in stream %}
+		<br>
+		<a href="{% url 'allfiles' streams.name %}"><h4 class="file">{{streams.name}}</h4></a>
+	{%endfor%}
+	{%endblock%}
+</body>
+</html>
